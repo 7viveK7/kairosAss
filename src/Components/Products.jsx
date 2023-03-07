@@ -17,7 +17,7 @@ export default function Products() {
       {product.map((each) => {
         return (
           <div key={each.id} className="kairosD">
-            <Link to={`/${each.id}`} className="link-item">
+            <Link to={`/products/${each.id}`} className="link-item">
               <img alt="timer" src={each.thumbnail} className="product" />
             </Link>
             <div className="description">

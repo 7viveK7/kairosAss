@@ -62,3 +62,12 @@
   display: flex;
   flex-wrap: wrap;
 }
+.similerImages{
+  width:200px;
+  margin:10px;
+  height:200px;
+}
+.thumbnail{
+  width:200px;
+  height:200px;
+}

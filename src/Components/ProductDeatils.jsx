@@ -6,12 +6,10 @@ const ProductCard = (props) => {
   const [product, setProduct] = useState({});
   useEffect(() => {
     const getProductDeatils = async (index) => {
-      const response = await fetch("https://dummyjson.com/products");
+      const response = await fetch(`https://dummyjson.com/products/${id}`);
       const data = await response.json();
-
-      const productdetails = data.products.filter((each) => index == each.id);
-
-      setProduct(productdetails[0]);
+      console.log(data.images);
+      setProduct(data);
     };
 
     getProductDeatils(id);
@@ -23,15 +21,18 @@ const ProductCard = (props) => {
   return (
     <div>
       <img src={product.thumbnail} alt="product" className="thumbnail" />
-      <p>{product.description}</p>
+      <p>Description: {product.description}</p>
       <h1>{product.title}</h1>
       <p>by {product.brand}</p>
       <div>
         <p>Rs {product.price}/-</p>
         <div>
-          <p>{product.rating}</p>
+          <p>{" Rating : " + product.rating}</p>
         </div>
       </div>
+      {product.images?.map((each) => (
+        <img src={each} alt="product" className="similerImages" />
+      ))}
     </div>
   );
 };
